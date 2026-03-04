@@ -1,0 +1,968 @@
+<!DOCTYPE html>
+<html lang="zh-HK">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="香港澳门6天旅行攻略：酒店、行程、交通、购物、APP、备选景点与天气预案，一页看完直接出发。">
+    <title>香港澳门旅游攻略 | 6天精华之旅</title>
+    <style>
+        :root {
+            --color-primary: #0f766e;
+            --color-primary-hover: #115e59;
+            --color-bg-base: #f8fafc;
+            --color-bg-surface: #ffffff;
+            --color-bg-elevated: #ecfeff;
+            --color-text-primary: #0f172a;
+            --color-text-secondary: #334155;
+            --color-text-muted: #64748b;
+            --color-accent: #ea580c;
+            --color-success: #16a34a;
+            --shadow-soft: 0 8px 28px rgba(15, 23, 42, 0.06);
+            --radius-md: 12px;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --color-primary: #2dd4bf;
+                --color-primary-hover: #5eead4;
+                --color-bg-base: #0f172a;
+                --color-bg-surface: #1e293b;
+                --color-bg-elevated: #334155;
+                --color-text-primary: #f1f5f9;
+                --color-text-secondary: #cbd5e1;
+                --color-text-muted: #94a3b8;
+                --color-accent: #fb923c;
+                --shadow-soft: 0 12px 28px rgba(2, 6, 23, 0.45);
+            }
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'PingFang SC', 'Noto Sans SC', 'Microsoft YaHei', sans-serif;
+            background: var(--color-bg-base);
+            color: var(--color-text-primary);
+            line-height: 1.6;
+            background-image: radial-gradient(circle at 0% 0%, rgba(15, 118, 110, 0.08) 0%, transparent 40%);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .skip-link {
+            position: absolute;
+            left: -9999px;
+            top: 12px;
+            background: var(--color-primary);
+            color: #fff;
+            padding: 10px 14px;
+            border-radius: 8px;
+            z-index: 9999;
+        }
+
+        .skip-link:focus {
+            left: 12px;
+        }
+
+        header {
+            background: linear-gradient(120deg, #0f766e 0%, #0ea5e9 70%, #f97316 100%);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+            margin-bottom: 40px;
+            border-radius: 12px;
+            box-shadow: var(--shadow-soft);
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        header p {
+            font-size: 1.2rem;
+            opacity: 0.95;
+        }
+
+        nav {
+            background: var(--color-bg-surface);
+            padding: 20px;
+            border-radius: 12px;
+            margin-bottom: 30px;
+            position: sticky;
+            top: 20px;
+            z-index: 100;
+            box-shadow: var(--shadow-soft);
+            border: 1px solid rgba(100, 116, 139, 0.2);
+        }
+
+        nav h3 {
+            color: var(--color-primary);
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        nav a {
+            color: var(--color-text-secondary);
+            text-decoration: none;
+            padding: 8px 16px;
+            border-radius: 8px;
+            background: var(--color-bg-elevated);
+            transition: all 0.3s;
+            font-size: 0.95rem;
+        }
+
+        nav a:hover {
+            background: var(--color-primary);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        nav a.active {
+            background: var(--color-primary);
+            color: #fff;
+        }
+
+        section {
+            background: var(--color-bg-surface);
+            padding: 30px;
+            margin-bottom: 30px;
+            border-radius: 12px;
+            box-shadow: var(--shadow-soft);
+            border: 1px solid rgba(100, 116, 139, 0.12);
+            scroll-margin-top: 110px;
+        }
+
+        h2 {
+            color: var(--color-primary);
+            font-size: 2rem;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid var(--color-primary);
+        }
+
+        h3 {
+            color: var(--color-accent);
+            font-size: 1.5rem;
+            margin: 25px 0 15px;
+        }
+
+        h4 {
+            color: var(--color-text-primary);
+            font-size: 1.2rem;
+            margin: 20px 0 10px;
+        }
+
+        .hotel-card, .day-card, .shopping-card, .info-card {
+            background: var(--color-bg-elevated);
+            padding: 20px;
+            margin: 15px 0;
+            border-radius: 10px;
+            border-left: 4px solid var(--color-primary);
+            transition: transform 0.3s;
+            display: block;
+        }
+
+        .hotel-card:hover, .day-card:hover, .shopping-card:hover, .app-card:hover, .info-card:hover {
+            transform: translateX(5px);
+        }
+
+        .location-tag {
+            display: inline-block;
+            background: var(--color-primary);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            margin-right: 10px;
+            font-weight: 600;
+        }
+
+        .day-tag {
+            display: inline-block;
+            background: var(--color-accent);
+            color: white;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        ul {
+            margin: 15px 0;
+            padding-left: 30px;
+        }
+
+        li {
+            margin: 10px 0;
+            color: var(--color-text-secondary);
+        }
+
+        strong {
+            color: var(--color-text-primary);
+        }
+
+        .tip-box {
+            background: linear-gradient(135deg, rgba(15, 118, 110, 0.14), rgba(249, 115, 22, 0.12));
+            border-left: 4px solid var(--color-success);
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+        }
+
+        .tip-box.with-links {
+            display: block;
+        }
+
+        .tip-box h4 {
+            color: var(--color-success);
+            margin-top: 0;
+        }
+
+        .icon {
+            width: 20px;
+            height: 20px;
+            display: inline-block;
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            color: var(--color-text-muted);
+            border-top: 1px solid var(--color-bg-elevated);
+            margin-top: 50px;
+        }
+
+        .hero-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 14px;
+            margin-top: 18px;
+        }
+
+        .stat-item {
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(6px);
+            border: 1px solid rgba(255, 255, 255, 0.35);
+            border-radius: var(--radius-md);
+            padding: 12px;
+        }
+
+        .stat-item strong {
+            color: #fff;
+            font-size: 1.1rem;
+        }
+
+        .overview-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 14px;
+        }
+
+        .checklist {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .checklist li {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+        }
+
+        .checklist li::before {
+            content: "✓";
+            color: var(--color-success);
+            font-weight: 700;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 12px;
+        }
+
+        th, td {
+            border: 1px solid rgba(100, 116, 139, 0.3);
+            padding: 10px 12px;
+            text-align: left;
+        }
+
+        th {
+            background: rgba(15, 118, 110, 0.12);
+        }
+
+        .top-btn {
+            position: fixed;
+            right: 20px;
+            bottom: 20px;
+            width: 44px;
+            height: 44px;
+            border: 0;
+            border-radius: 50%;
+            background: var(--color-primary);
+            color: #fff;
+            cursor: pointer;
+            display: none;
+            box-shadow: var(--shadow-soft);
+        }
+
+        .top-btn.show {
+            display: block;
+        }
+
+        @media print {
+            nav, .top-btn {
+                display: none !important;
+            }
+
+            body {
+                background: #fff;
+            }
+
+            section {
+                box-shadow: none;
+                border: 1px solid #ddd;
+                break-inside: avoid;
+            }
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 1.8rem;
+            }
+
+            h2 {
+                font-size: 1.5rem;
+            }
+
+            nav ul {
+                flex-direction: column;
+            }
+
+            .hero-stats, .overview-grid {
+                grid-template-columns: 1fr;
+            }
+
+            section {
+                padding: 20px;
+            }
+        }
+
+        .hotel-card h4, .day-card h4, .info-card h4 {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .hotel-book {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 22px;
+            height: 22px;
+            border-radius: 999px;
+            background: #2577e3;
+            color: #fff;
+            text-decoration: none;
+            font-size: 12px;
+            box-shadow: 0 2px 6px rgba(37, 119, 227, 0.3);
+        }
+
+        .hotel-book:hover {
+            background: #1f63bc;
+        }
+
+        .poi {
+            color: var(--color-text-primary);
+            font-weight: 600;
+        }
+
+        .poi-links {
+            display: inline-flex;
+            gap: 4px;
+            margin-left: 6px;
+            vertical-align: middle;
+        }
+
+        .poi-link {
+            width: 18px;
+            height: 18px;
+            border-radius: 999px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            font-size: 10px;
+            font-weight: 700;
+            transition: transform 0.2s ease;
+        }
+
+        .poi-link:hover {
+            transform: translateY(-1px);
+        }
+
+        .poi-link.amap {
+            background: #fff7ed;
+            color: #c2410c;
+            border: 1px solid #fdba74;
+        }
+
+        .poi-link.google {
+            background: #eff6ff;
+            color: #1d4ed8;
+            border: 1px solid #93c5fd;
+        }
+
+        .poi-link.xhs {
+            background: #fff1f2;
+            color: #be123c;
+            border: 1px solid #fda4af;
+        }
+
+        .poi-link.ctrip {
+            background: #dbeafe;
+            color: #1d4ed8;
+            border: 1px solid #93c5fd;
+        }
+
+        .poi-link.flight {
+            background: #fef3c7;
+            color: #92400e;
+            border: 1px solid #fcd34d;
+        }
+
+        .poi-link.price {
+            background: #dcfce7;
+            color: #166534;
+            border: 1px solid #86efac;
+        }
+
+        .poi-link.official {
+            background: #e2e8f0;
+            color: #0f172a;
+            border: 1px solid #cbd5e1;
+        }
+
+        .brand-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 8px;
+        }
+
+        .brand-links a {
+            text-decoration: none;
+            color: var(--color-primary);
+            background: rgba(15, 118, 110, 0.08);
+            border: 1px solid rgba(15, 118, 110, 0.2);
+            padding: 4px 9px;
+            border-radius: 999px;
+            font-size: 0.85rem;
+        }
+
+        .brand-links a:hover {
+            background: var(--color-primary);
+            color: #fff;
+        }
+
+        .copy-icon {
+            margin-left: auto;
+            width: 30px;
+            height: 30px;
+            border: 1px solid rgba(15, 23, 42, 0.14);
+            border-radius: 8px;
+            background: #fff;
+            color: #334155;
+            font-size: 16px;
+            line-height: 1;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            box-shadow: 0 1px 3px rgba(15, 23, 42, 0.08);
+        }
+
+        .copy-icon:hover {
+            border-color: var(--color-primary);
+            color: var(--color-primary);
+            transform: translateY(-1px);
+            box-shadow: 0 6px 14px rgba(15, 118, 110, 0.18);
+        }
+
+        .copy-icon.copied {
+            border-color: #16a34a;
+            color: #16a34a;
+        }
+
+        .map-note {
+            color: var(--color-text-muted);
+            font-size: 0.92rem;
+            margin-top: -10px;
+            margin-bottom: 14px;
+        }
+
+        .copy-toast {
+            position: fixed;
+            left: 50%;
+            bottom: 24px;
+            transform: translateX(-50%) translateY(8px);
+            background: rgba(15, 23, 42, 0.92);
+            color: #fff;
+            border-radius: 999px;
+            padding: 8px 14px;
+            font-size: 0.86rem;
+            line-height: 1.4;
+            opacity: 0;
+            pointer-events: none;
+            transition: all 0.2s ease;
+            z-index: 1200;
+            box-shadow: 0 8px 20px rgba(15, 23, 42, 0.26);
+        }
+
+        .copy-toast.show {
+            opacity: 1;
+            transform: translateX(-50%) translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🌟 香港澳门旅游攻略 🌟</h1>
+            <p>6天精华退休纪念之旅 | 精选酒店文化 &amp; 经典景点</p>
+        </header>
+
+        <nav>
+            <h3>快速导航</h3>
+            <ul>
+                <li><a href="#hotels">🏨 香港酒店</a></li>
+                <li><a href="#macau-hotels">🇲🇴 澳门酒店文化</a></li>
+                <li><a href="#hongkong">🇭🇰 香港3天游玩</a></li>
+                <li><a href="#macau">🇲🇴 澳门3天游玩</a></li>
+                <li><a href="#alternatives">🌦️ 备选景点与天气方案</a></li>
+                <li><a href="#shopping">🛍️ 购物攻略</a></li>
+                <li><a href="#apps">📱 必备APP</a></li>
+            </ul>
+        </nav>
+
+        <section id="hotels">
+            <h2>🏨 香港酒店推荐</h2>
+            <p class="map-note">景点名后面统一是小图标：高=高德，谷=Google，书=小红书。酒店标题右侧可一键复制名称；点“携”会先自动复制酒店名再跳携程。</p>
+            
+            <h3>香港酒店（建议住：中环/尖沙咀）</h3>
+            <div class="tip-box with-links">
+                <h4>预订直达</h4>
+                <p>酒店可先在携程看价格和房型<span class="poi-links"><a class="poi-link ctrip" href="https://hotels.ctrip.com/hotels/list?cityname=%E9%A6%99%E6%B8%AF" target="_blank" rel="noopener noreferrer" title="携程订酒店（香港）">携</a></span>，机票可在 Skyscanner 比较多平台价格<span class="poi-links"><a class="poi-link flight" href="https://www.skyscanner.com.hk/" target="_blank" rel="noopener noreferrer" title="Skyscanner 机票">票</a></span>。</p>
+            </div>
+            
+            <div class="hotel-card">
+                <h4><span class="location-tag">尖沙咀</span>香港半岛酒店 The Peninsula Hong Kong <a class="hotel-book" href="https://hotels.ctrip.com/hotels/list?cityname=%E9%A6%99%E6%B8%AF&amp;keyword=%E9%A6%99%E6%B8%AF%E5%8D%8A%E5%B2%9B%E9%85%92%E5%BA%97" target="_blank" rel="noopener noreferrer" title="携程预订">携</a><span class="poi-links"><a class="poi-link amap" href="https://uri.amap.com/search?keyword=香港半岛酒店,尖沙咀梳士巴利道22号" target="_blank" rel="noopener noreferrer" title="高德地图">高</a><a class="poi-link google" href="https://www.google.com/maps/search/?api=1&amp;query=香港半岛酒店,尖沙咀梳士巴利道22号" target="_blank" rel="noopener noreferrer" title="Google 地图">谷</a><a class="poi-link xhs" href="https://www.xiaohongshu.com/search_result?keyword=香港半岛酒店" target="_blank" rel="noopener noreferrer" title="小红书攻略">书</a></span></h4>
+                <p><strong>地址：</strong>尖沙咀梳士巴利道22号</p>
+                <p><strong>特色：</strong>经典老牌顶奢标杆，1928年开业，香港最著名的豪华酒店之一</p>
+            </div>
+
+            <div class="hotel-card">
+                <h4><span class="location-tag">中环</span>香港文华东方酒店 Mandarin Oriental Hong Kong <a class="hotel-book" href="https://hotels.ctrip.com/hotels/list?cityname=%E9%A6%99%E6%B8%AF&amp;keyword=%E9%A6%99%E6%B8%AF%E6%96%87%E5%8D%8E%E4%B8%9C%E6%96%B9%E9%85%92%E5%BA%97" target="_blank" rel="noopener noreferrer" title="携程预订">携</a><span class="poi-links"><a class="poi-link amap" href="https://uri.amap.com/search?keyword=香港文华东方酒店,中环干诺道中5号" target="_blank" rel="noopener noreferrer" title="高德地图">高</a><a class="poi-link google" href="https://www.google.com/maps/search/?api=1&amp;query=香港文华东方酒店,中环干诺道中5号" target="_blank" rel="noopener noreferrer" title="Google 地图">谷</a><a class="poi-link xhs" href="https://www.xiaohongshu.com/search_result?keyword=香港文华东方酒店" target="_blank" rel="noopener noreferrer" title="小红书攻略">书</a></span></h4>
+                <p><strong>地址：</strong>中环干诺道中5号</p>
+                <p><strong>特色：</strong>地段核心、服务口碑很强</p>
+            </div>
+
+            <div class="hotel-card">
+                <h4><span class="location-tag">中环</span>香港置地文华东方酒店 The Landmark Mandarin Oriental <a class="hotel-book" href="https://hotels.ctrip.com/hotels/list?cityname=%E9%A6%99%E6%B8%AF&amp;keyword=%E9%A6%99%E6%B8%AF%E7%BD%AE%E5%9C%B0%E6%96%87%E5%8D%8E%E4%B8%9C%E6%96%B9%E9%85%92%E5%BA%97" target="_blank" rel="noopener noreferrer" title="携程预订">携</a><span class="poi-links"><a class="poi-link amap" href="https://uri.amap.com/search?keyword=香港置地文华东方酒店,中环置地广场" target="_blank" rel="noopener noreferrer" title="高德地图">高</a><a class="poi-link google" href="https://www.google.com/maps/search/?api=1&amp;query=香港置地文华东方酒店,中环置地广场" target="_blank" rel="noopener noreferrer" title="Google 地图">谷</a><a class="poi-link xhs" href="https://www.xiaohongshu.com/search_result?keyword=香港置地文华东方酒店" target="_blank" rel="noopener noreferrer" title="小红书攻略">书</a></span></h4>
+                <p><strong>地址：</strong>中环置地广场</p>
+                <p><strong>特色：</strong>适合"购物+餐饮+酒店"一体化动线</p>
+            </div>
+
+            <div class="hotel-card">
+                <h4><span class="location-tag">中环</span>香港四季酒店 Four Seasons Hotel Hong Kong <a class="hotel-book" href="https://hotels.ctrip.com/hotels/list?cityname=%E9%A6%99%E6%B8%AF&amp;keyword=%E9%A6%99%E6%B8%AF%E5%9B%9B%E5%AD%A3%E9%85%92%E5%BA%97" target="_blank" rel="noopener noreferrer" title="携程预订">携</a><span class="poi-links"><a class="poi-link amap" href="https://uri.amap.com/search?keyword=香港四季酒店,中环金融街8号" target="_blank" rel="noopener noreferrer" title="高德地图">高</a><a class="poi-link google" href="https://www.google.com/maps/search/?api=1&amp;query=香港四季酒店,中环金融街8号" target="_blank" rel="noopener noreferrer" title="Google 地图">谷</a><a class="poi-link xhs" href="https://www.xiaohongshu.com/search_result?keyword=香港四季酒店" target="_blank" rel="noopener noreferrer" title="小红书攻略">书</a></span></h4>
+                <p><strong>地址：</strong>中环金融街8号（与国际金融中心IFC相连）</p>
+                <p><strong>特色：</strong>去天星码头步行很近，交通便利</p>
+            </div>
+
+        </section>
+
+        <section id="macau-hotels">
+            <h2>🇲🇴 澳门酒店文化（可当景点玩）</h2>
+            <div class="tip-box with-links">
+                <h4>澳门酒店为什么值得单独安排一天</h4>
+                <p>澳门不少酒店本身就是综合景点：建筑、艺术装置、室内商场、餐厅、演艺都在一起。对长辈更友好，不赶路、少暴走、雨天也能玩。</p>
+            </div>
+
+            <h3>澳门半岛线（经典地标 + 老城动线）</h3>
+            <div class="hotel-card">
+                <h4><span class="location-tag">新口岸</span>澳门文华东方酒店 Mandarin Oriental Macau <a class="hotel-book" href="https://hotels.ctrip.com/hotels/list?cityname=%E6%BE%B3%E9%97%A8&amp;keyword=%E6%BE%B3%E9%97%A8%E6%96%87%E5%8D%8E%E4%B8%9C%E6%96%B9%E9%85%92%E5%BA%97" target="_blank" rel="noopener noreferrer" title="携程预订">携</a><span class="poi-links"><a class="poi-link amap" href="https://uri.amap.com/search?keyword=澳门文华东方酒店,孙逸仙大马路945号" target="_blank" rel="noopener noreferrer" title="高德地图">高</a><a class="poi-link google" href="https://www.google.com/maps/search/?api=1&amp;query=澳门文华东方酒店,孙逸仙大马路945号" target="_blank" rel="noopener noreferrer" title="Google 地图">谷</a><a class="poi-link xhs" href="https://www.xiaohongshu.com/search_result?keyword=澳门文华东方酒店" target="_blank" rel="noopener noreferrer" title="小红书攻略">书</a></span></h4>
+                <p><strong>地址：</strong>澳门半岛新口岸孙逸仙大马路945号</p>
+                <p><strong>看点：</strong>低调安静、服务细致、海景体验好，适合轻松养生型行程。</p>
+            </div>
+            <div class="hotel-card">
+                <h4><span class="location-tag">半岛</span>新葡京酒店 Grand Lisboa <a class="hotel-book" href="https://hotels.ctrip.com/hotels/list?cityname=%E6%BE%B3%E9%97%A8&amp;keyword=%E6%BE%B3%E9%97%A8%E6%96%B0%E8%91%A1%E4%BA%AC%E9%85%92%E5%BA%97" target="_blank" rel="noopener noreferrer" title="携程预订">携</a><span class="poi-links"><a class="poi-link amap" href="https://uri.amap.com/search?keyword=澳门新葡京酒店" target="_blank" rel="noopener noreferrer" title="高德地图">高</a><a class="poi-link google" href="https://www.google.com/maps/search/?api=1&amp;query=澳门新葡京酒店" target="_blank" rel="noopener noreferrer" title="Google 地图">谷</a><a class="poi-link xhs" href="https://www.xiaohongshu.com/search_result?keyword=澳门新葡京酒店" target="_blank" rel="noopener noreferrer" title="小红书攻略">书</a></span></h4>
+                <p><strong>地址：</strong>澳门葡京路</p>
+                <p><strong>看点：</strong>澳门标志性建筑，夜景辨识度高，去老城核心景点都方便。</p>
+            </div>
+
+            <h3>路氹线（度假综合体 + 室内友好）</h3>
+            <div class="hotel-card">
+                <h4><span class="location-tag">路氹</span>澳门丽思卡尔顿酒店 The Ritz-Carlton Macau ⭐推荐 <a class="hotel-book" href="https://hotels.ctrip.com/hotels/list?cityname=%E6%BE%B3%E9%97%A8&amp;keyword=%E6%BE%B3%E9%97%A8%E4%B8%BD%E6%80%9D%E5%8D%A1%E5%B0%94%E9%A1%BF%E9%85%92%E5%BA%97" target="_blank" rel="noopener noreferrer" title="携程预订">携</a><span class="poi-links"><a class="poi-link amap" href="https://uri.amap.com/search?keyword=澳门丽思卡尔顿酒店" target="_blank" rel="noopener noreferrer" title="高德地图">高</a><a class="poi-link google" href="https://www.google.com/maps/search/?api=1&amp;query=澳门丽思卡尔顿酒店" target="_blank" rel="noopener noreferrer" title="Google 地图">谷</a><a class="poi-link xhs" href="https://www.xiaohongshu.com/search_result?keyword=澳门丽思卡尔顿酒店" target="_blank" rel="noopener noreferrer" title="小红书攻略">书</a></span></h4>
+                <p><strong>地址：</strong>路氹城</p>
+                <p><strong>看点：</strong>全套房，度假感强，适合纪念旅行和高品质休息。</p>
+            </div>
+            <div class="hotel-card">
+                <h4><span class="location-tag">路氹</span>澳门伦敦人酒店 The Londoner Macao <a class="hotel-book" href="https://hotels.ctrip.com/hotels/list?cityname=%E6%BE%B3%E9%97%A8&amp;keyword=%E6%BE%B3%E9%97%A8%E4%BC%A6%E6%95%A6%E4%BA%BA%E9%85%92%E5%BA%97" target="_blank" rel="noopener noreferrer" title="携程预订">携</a><span class="poi-links"><a class="poi-link amap" href="https://uri.amap.com/search?keyword=澳门伦敦人酒店" target="_blank" rel="noopener noreferrer" title="高德地图">高</a><a class="poi-link google" href="https://www.google.com/maps/search/?api=1&amp;query=澳门伦敦人酒店" target="_blank" rel="noopener noreferrer" title="Google 地图">谷</a><a class="poi-link xhs" href="https://www.xiaohongshu.com/search_result?keyword=澳门伦敦人酒店" target="_blank" rel="noopener noreferrer" title="小红书攻略">书</a></span></h4>
+                <p><strong>地址：</strong>路氹连贯公路</p>
+                <p><strong>看点：</strong>英伦主题强，室内逛街拍照点很多，雨天可玩性很高。</p>
+            </div>
+            <div class="hotel-card">
+                <h4><span class="location-tag">路氹</span>澳门永利皇宫 Wynn Palace <a class="hotel-book" href="https://hotels.ctrip.com/hotels/list?cityname=%E6%BE%B3%E9%97%A8&amp;keyword=%E6%BE%B3%E9%97%A8%E6%B0%B8%E5%88%A9%E7%9A%87%E5%AE%AB" target="_blank" rel="noopener noreferrer" title="携程预订">携</a><span class="poi-links"><a class="poi-link amap" href="https://uri.amap.com/search?keyword=澳门永利皇宫" target="_blank" rel="noopener noreferrer" title="高德地图">高</a><a class="poi-link google" href="https://www.google.com/maps/search/?api=1&amp;query=澳门永利皇宫" target="_blank" rel="noopener noreferrer" title="Google 地图">谷</a><a class="poi-link xhs" href="https://www.xiaohongshu.com/search_result?keyword=澳门永利皇宫" target="_blank" rel="noopener noreferrer" title="小红书攻略">书</a></span></h4>
+                <p><strong>地址：</strong>体育馆大马路</p>
+                <p><strong>看点：</strong>缆车、喷泉、花艺装置都很出片，酒店本身就是景点。</p>
+            </div>
+        </section>
+
+        <section id="hongkong">
+            <h2>🇭🇰 香港3天游玩（第1-3天）</h2>
+            
+            <div class="day-card">
+                <span class="day-tag">第1天</span>
+                <h4>港岛名片线：山顶 + 天星小轮 + 维港夜景</h4>
+                <ul>
+                    <li><strong>上午：</strong><span class="poi">太平山顶</span><span class="poi-links"><a class="poi-link amap" href="https://uri.amap.com/search?keyword=太平山顶缆车总站" target="_blank" rel="noopener noreferrer" title="高德地图">高</a><a class="poi-link google" href="https://www.google.com/maps/search/?api=1&amp;query=太平山顶缆车总站" target="_blank" rel="noopener noreferrer" title="Google 地图">谷</a></span>（山顶缆车上山，香港第一地标）</li>
+                    <li><strong>中午：</strong>中环用餐，顺路逛<span class="poi">都爹利街</span><span class="poi-links"><a class="poi-link amap" href="https://uri.amap.com/search?keyword=都爹利街" target="_blank" rel="noopener noreferrer" title="高德地图">高</a><a class="poi-link google" href="https://www.google.com/maps/search/?api=1&amp;query=都爹利街" target="_blank" rel="noopener noreferrer" title="Google 地图">谷</a></span> / <span class="poi">皇后像广场</span><span class="poi-links"><a class="poi-link amap" href="https://uri.amap.com/search?keyword=皇后像广场 香港" target="_blank" rel="noopener noreferrer" title="高德地图">高</a><a class="poi-link google" href="https://www.google.com/maps/search/?api=1&amp;query=皇后像广场 香港" target="_blank" rel="noopener noreferrer" title="Google 地图">谷</a></span></li>
+                    <li><strong>下午：</strong><span class="poi">天星小轮</span><span class="poi-links"><a class="poi-link amap" href="https://uri.amap.com/search?keyword=天星小轮中环码头" target="_blank" rel="noopener noreferrer" title="高德地图">高</a><a class="poi-link google" href="https://www.google.com/maps/search/?api=1&amp;query=天星小轮中环码头" target="_blank" rel="noopener noreferrer" title="Google 地图">谷</a></span>（中环→尖沙咀）感受维港经典视角</li>
+                    <li><strong>晚上：</strong><span class="poi">星光大道</span><span class="poi-links"><a class="poi-link amap" href="https://uri.amap.com/search?keyword=香港星光大道" target="_blank" rel="noopener noreferrer" title="高德地图">高</a><a class="poi-link google" href="https://www.google.com/maps/search/?api=1&amp;query=香港星光大道" target="_blank" rel="noopener noreferrer" title="Google 地图">谷</a></span> + 维港夜景（可看“幻彩咏香江”）</li>
+                </ul>
+            </div>
+
+            <div class="day-card">
+                <span class="day-tag">第2天</span>
+                <h4>大屿山地标线：昂坪360 + 天坛大佛</h4>
+                <ul>
+                    <li><strong>上午：</strong>东涌上<span class="poi">昂坪360</span><span class="poi-links"><a class="poi-link amap" href="https://uri.amap.com/search?keyword=昂坪360东涌站" target="_blank" rel="noopener noreferrer" title="高德地图">高</a><a class="poi-link google" href="https://www.google.com/maps/search/?api=1&amp;query=昂坪360东涌站" target="_blank" rel="noopener noreferrer" title="Google 地图">谷</a></span>缆车（观景体验强）</li>
+                    <li><strong>中午：</strong><span class="poi">天坛大佛</span><span class="poi-links"><a class="poi-link amap" href="https://uri.amap.com/search?keyword=天坛大佛" target="_blank" rel="noopener noreferrer" title="高德地图">高</a><a class="poi-link google" href="https://www.google.com/maps/search/?api=1&amp;query=天坛大佛" target="_blank" rel="noopener noreferrer" title="Google 地图">谷</a></span> + 宝莲禅寺，节奏慢慢走</li>
+                    <li><strong>下午：</strong><span class="poi">东荟城名店仓</span><span class="poi-links"><a class="poi-link amap" href="https://uri.amap.com/search?keyword=东荟城名店仓" target="_blank" rel="noopener noreferrer" title="高德地图">高</a><a class="poi-link google" href="https://www.google.com/maps/search/?api=1&amp;query=东荟城名店仓" target="_blank" rel="noopener noreferrer" title="Google 地图">谷</a></span>（室内休息+补给）</li>
+                    <li><strong>晚上：</strong>回市区吃饭，保留体力给第3天</li>
+                </ul>
+            </div>
+
+            <div class="day-card">
+                <span class="day-tag">第3天</span>
+                <h4>九龙核心线：西九双馆 + 尖沙咀收官</h4>
+                <ul>
+                    <li><strong>上午：</strong><span class="poi">香港故宫文化博物馆</span><span class="poi-links"><a class="poi-link amap" href="https://uri.amap.com/search?keyword=香港故宫文化博物馆" target="_blank" rel="noopener noreferrer" title="高德地图">高</a><a class="poi-link google" href="https://www.google.com/maps/search/?api=1&amp;query=香港故宫文化博物馆" target="_blank" rel="noopener noreferrer" title="Google 地图">谷</a></span>（国宝特展，香港必看）</li>
+                    <li><strong>下午：</strong><span class="poi">M+博物馆</span><span class="poi-links"><a class="poi-link amap" href="https://uri.amap.com/search?keyword=M+博物馆" target="_blank" rel="noopener noreferrer" title="高德地图">高</a><a class="poi-link google" href="https://www.google.com/maps/search/?api=1&amp;query=M+博物馆" target="_blank" rel="noopener noreferrer" title="Google 地图">谷</a></span> + 西九海滨（现代艺术和建筑）</li>
+                    <li><strong>傍晚：</strong><span class="poi">尖沙咀海港城</span><span class="poi-links"><a class="poi-link amap" href="https://uri.amap.com/search?keyword=海港城 香港" target="_blank" rel="noopener noreferrer" title="高德地图">高</a><a class="poi-link google" href="https://www.google.com/maps/search/?api=1&amp;query=海港城 香港" target="_blank" rel="noopener noreferrer" title="Google 地图">谷</a></span> / <span class="poi">K11 MUSEA</span><span class="poi-links"><a class="poi-link amap" href="https://uri.amap.com/search?keyword=K11%20MUSEA%20香港" target="_blank" rel="noopener noreferrer" title="高德地图">高</a><a class="poi-link google" href="https://www.google.com/maps/search/?api=1&amp;query=K11%20MUSEA%20香港" target="_blank" rel="noopener noreferrer" title="Google 地图">谷</a></span> 二选一慢逛</li>
+                    <li><strong>晚上：</strong>回酒店整理行李，准备去澳门</li>
+                </ul>
+            </div>
+
+        </section>
+
+        <section id="macau">
+            <h2>🇲🇴 澳门3天游玩（第4-6天）</h2>
+            
+            <div class="day-card">
+                <span class="day-tag">第4天</span>
+                <h4>酒店文化专场（和上面澳门酒店文化联动）</h4>
+                <ul>
+                    <li><strong>上午：</strong>从香港出发抵达澳门，先办入住（建议<span class="poi">丽思卡尔顿</span><span class="poi-links"><a class="poi-link amap" href="https://uri.amap.com/search?keyword=澳门丽思卡尔顿酒店" target="_blank" rel="noopener noreferrer" title="高德地图">高</a><a class="poi-link google" href="https://www.google.com/maps/search/?api=1&amp;query=澳门丽思卡尔顿酒店" target="_blank" rel="noopener noreferrer" title="Google 地图">谷</a></span>）</li>
+                    <li><strong>下午：</strong><span class="poi">永利皇宫</span><span class="poi-links"><a class="poi-link amap" href="https://uri.amap.com/search?keyword=澳门永利皇宫" target="_blank" rel="noopener noreferrer" title="高德地图">高</a><a class="poi-link google" href="https://www.google.com/maps/search/?api=1&amp;query=澳门永利皇宫" target="_blank" rel="noopener noreferrer" title="Google 地图">谷</a></span> / <span class="poi">伦敦人</span><span class="poi-links"><a class="poi-link amap" href="https://uri.amap.com/search?keyword=澳门伦敦人酒店" target="_blank" rel="noopener noreferrer" title="高德地图">高</a><a class="poi-link google" href="https://www.google.com/maps/search/?api=1&amp;query=澳门伦敦人酒店" target="_blank" rel="noopener noreferrer" title="Google 地图">谷</a></span> 酒店巡游</li>
+                    <li><strong>晚上：</strong>酒店内晚餐+早休息，这天主打“酒店即景点”</li>
+                </ul>
+            </div>
+
+            <div class="day-card">
+                <span class="day-tag">第5天</span>
+                <h4>澳门世界遗产老城（最经典的一天）</h4>
+                <ul>
+                    <li><strong>上午：</strong><span class="poi">大三巴牌坊</span><span class="poi-links"><a class="poi-link amap" href="https://uri.amap.com/search?keyword=大三巴牌坊" target="_blank" rel="noopener noreferrer" title="高德地图">高</a><a class="poi-link google" href="https://www.google.com/maps/search/?api=1&amp;query=大三巴牌坊" target="_blank" rel="noopener noreferrer" title="Google 地图">谷</a></span> → <span class="poi">恋爱巷</span><span class="poi-links"><a class="poi-link amap" href="https://uri.amap.com/search?keyword=恋爱巷 澳门" target="_blank" rel="noopener noreferrer" title="高德地图">高</a><a class="poi-link google" href="https://www.google.com/maps/search/?api=1&amp;query=恋爱巷 澳门" target="_blank" rel="noopener noreferrer" title="Google 地图">谷</a></span>（拍照打卡线）</li>
+                    <li><strong>下午：</strong><span class="poi">议事亭前地</span><span class="poi-links"><a class="poi-link amap" href="https://uri.amap.com/search?keyword=议事亭前地" target="_blank" rel="noopener noreferrer" title="高德地图">高</a><a class="poi-link google" href="https://www.google.com/maps/search/?api=1&amp;query=议事亭前地" target="_blank" rel="noopener noreferrer" title="Google 地图">谷</a></span> → <span class="poi">玫瑰堂</span><span class="poi-links"><a class="poi-link amap" href="https://uri.amap.com/search?keyword=玫瑰堂 澳门" target="_blank" rel="noopener noreferrer" title="高德地图">高</a><a class="poi-link google" href="https://www.google.com/maps/search/?api=1&amp;query=玫瑰堂 澳门" target="_blank" rel="noopener noreferrer" title="Google 地图">谷</a></span>（街区连走很顺）</li>
+                    <li><strong>晚上：</strong>葡式料理（退休庆祝第二顿）</li>
+                </ul>
+            </div>
+
+            <div class="day-card">
+                <span class="day-tag">第6天</span>
+                <h4>历史深入（博物馆 + 观景）</h4>
+                <ul>
+                    <li><strong>上午：</strong><span class="poi">澳门博物馆</span><span class="poi-links"><a class="poi-link amap" href="https://uri.amap.com/search?keyword=澳门博物馆" target="_blank" rel="noopener noreferrer" title="高德地图">高</a><a class="poi-link google" href="https://www.google.com/maps/search/?api=1&amp;query=澳门博物馆" target="_blank" rel="noopener noreferrer" title="Google 地图">谷</a></span>（了解葡澳历史脉络）</li>
+                    <li><strong>下午：</strong><span class="poi">大炮台公园</span><span class="poi-links"><a class="poi-link amap" href="https://uri.amap.com/search?keyword=大炮台" target="_blank" rel="noopener noreferrer" title="高德地图">高</a><a class="poi-link google" href="https://www.google.com/maps/search/?api=1&amp;query=大炮台" target="_blank" rel="noopener noreferrer" title="Google 地图">谷</a></span>（视野好，节奏可慢）</li>
+                    <li><strong>晚上：</strong>回酒店休息或做SPA（保持体力）</li>
+                </ul>
+            </div>
+
+        </section>
+
+        <section id="alternatives">
+            <h2>🌦️ 备选景点与天气方案</h2>
+            <div class="tip-box">
+                <h4>天气不稳时怎么选</h4>
+                <p>优先“室内、可休息、同片区可连逛”的点位。风雨大时，减少跨海和长距离步行，尽量打车点对点。</p>
+            </div>
+
+            <h3>香港备选（必去景点的替换方案）</h3>
+            <div class="info-card">
+                <h4>晴天加码：香港迪士尼乐园（全天）</h4>
+                <p>如果同行人状态好、又想要“香港限定”的高记忆点，一天给<span class="poi">香港迪士尼乐园</span><span class="poi-links"><a class="poi-link amap" href="https://uri.amap.com/search?keyword=香港迪士尼乐园" target="_blank" rel="noopener noreferrer" title="高德地图">高</a><a class="poi-link google" href="https://www.google.com/maps/search/?api=1&amp;query=香港迪士尼乐园" target="_blank" rel="noopener noreferrer" title="Google 地图">谷</a><a class="poi-link xhs" href="https://www.xiaohongshu.com/search_result?keyword=香港迪士尼攻略" target="_blank" rel="noopener noreferrer" title="小红书攻略">书</a></span>很值。</p>
+            </div>
+            <div class="info-card">
+                <h4>晴天海景线：海洋公园 + 浅水湾</h4>
+                <p>上午<span class="poi">海洋公园</span><span class="poi-links"><a class="poi-link amap" href="https://uri.amap.com/search?keyword=香港海洋公园" target="_blank" rel="noopener noreferrer" title="高德地图">高</a><a class="poi-link google" href="https://www.google.com/maps/search/?api=1&amp;query=香港海洋公园" target="_blank" rel="noopener noreferrer" title="Google 地图">谷</a></span>，下午<span class="poi">浅水湾</span><span class="poi-links"><a class="poi-link amap" href="https://uri.amap.com/search?keyword=浅水湾海滩" target="_blank" rel="noopener noreferrer" title="高德地图">高</a><a class="poi-link google" href="https://www.google.com/maps/search/?api=1&amp;query=浅水湾海滩" target="_blank" rel="noopener noreferrer" title="Google 地图">谷</a></span>吹海风，这条线是香港经典海景体验。</p>
+            </div>
+            <div class="info-card">
+                <h4>雨天保底线：西九故宫 + M+ + K11 MUSEA</h4>
+                <p>全程可室内完成，且都是香港核心地标：<span class="poi">香港故宫文化博物馆</span><span class="poi-links"><a class="poi-link amap" href="https://uri.amap.com/search?keyword=香港故宫文化博物馆" target="_blank" rel="noopener noreferrer" title="高德地图">高</a><a class="poi-link google" href="https://www.google.com/maps/search/?api=1&amp;query=香港故宫文化博物馆" target="_blank" rel="noopener noreferrer" title="Google 地图">谷</a></span>、<span class="poi">M+博物馆</span><span class="poi-links"><a class="poi-link amap" href="https://uri.amap.com/search?keyword=M+博物馆" target="_blank" rel="noopener noreferrer" title="高德地图">高</a><a class="poi-link google" href="https://www.google.com/maps/search/?api=1&amp;query=M+博物馆" target="_blank" rel="noopener noreferrer" title="Google 地图">谷</a></span>、<span class="poi">K11 MUSEA</span><span class="poi-links"><a class="poi-link amap" href="https://uri.amap.com/search?keyword=K11%20MUSEA%20香港" target="_blank" rel="noopener noreferrer" title="高德地图">高</a><a class="poi-link google" href="https://www.google.com/maps/search/?api=1&amp;query=K11%20MUSEA%20香港" target="_blank" rel="noopener noreferrer" title="Google 地图">谷</a></span>，天气差也不会浪费行程。</p>
+            </div>
+
+            <h3>澳门备选（天气差也能完整玩一天）</h3>
+            <div class="info-card">
+                <h4>teamLab 超自然空间（路氹）</h4>
+                <p>完全室内，沉浸式体验强，走累了也能分段休息。<span class="poi">teamLab 超自然空间</span><span class="poi-links"><a class="poi-link amap" href="https://uri.amap.com/search?keyword=teamLab%20Macau" target="_blank" rel="noopener noreferrer" title="高德地图">高</a><a class="poi-link google" href="https://www.google.com/maps/search/?api=1&amp;query=teamLab%20Macau" target="_blank" rel="noopener noreferrer" title="Google 地图">谷</a><a class="poi-link xhs" href="https://www.xiaohongshu.com/search_result?keyword=teamLab%20Macau" target="_blank" rel="noopener noreferrer" title="小红书攻略">书</a></span></p>
+            </div>
+            <div class="info-card">
+                <h4>威尼斯人 + 巴黎人 + 伦敦人连廊</h4>
+                <p>基本是室内线，遇到暴雨、台风前后或烈日时非常稳：<span class="poi">威尼斯人</span><span class="poi-links"><a class="poi-link amap" href="https://uri.amap.com/search?keyword=澳门威尼斯人" target="_blank" rel="noopener noreferrer" title="高德地图">高</a><a class="poi-link google" href="https://www.google.com/maps/search/?api=1&amp;query=澳门威尼斯人" target="_blank" rel="noopener noreferrer" title="Google 地图">谷</a></span>、<span class="poi">巴黎人</span><span class="poi-links"><a class="poi-link amap" href="https://uri.amap.com/search?keyword=澳门巴黎人" target="_blank" rel="noopener noreferrer" title="高德地图">高</a><a class="poi-link google" href="https://www.google.com/maps/search/?api=1&amp;query=澳门巴黎人" target="_blank" rel="noopener noreferrer" title="Google 地图">谷</a></span>、<span class="poi">伦敦人</span><span class="poi-links"><a class="poi-link amap" href="https://uri.amap.com/search?keyword=澳门伦敦人酒店" target="_blank" rel="noopener noreferrer" title="高德地图">高</a><a class="poi-link google" href="https://www.google.com/maps/search/?api=1&amp;query=澳门伦敦人酒店" target="_blank" rel="noopener noreferrer" title="Google 地图">谷</a></span>。</p>
+            </div>
+            <div class="info-card">
+                <h4>澳门大赛车博物馆 + 澳门博物馆</h4>
+                <p>历史+城市记忆组合，文化体验完整，全天候可执行：<span class="poi">澳门大赛车博物馆</span><span class="poi-links"><a class="poi-link amap" href="https://uri.amap.com/search?keyword=澳门大赛车博物馆" target="_blank" rel="noopener noreferrer" title="高德地图">高</a><a class="poi-link google" href="https://www.google.com/maps/search/?api=1&amp;query=澳门大赛车博物馆" target="_blank" rel="noopener noreferrer" title="Google 地图">谷</a></span>、<span class="poi">澳门博物馆</span><span class="poi-links"><a class="poi-link amap" href="https://uri.amap.com/search?keyword=澳门博物馆" target="_blank" rel="noopener noreferrer" title="高德地图">高</a><a class="poi-link google" href="https://www.google.com/maps/search/?api=1&amp;query=澳门博物馆" target="_blank" rel="noopener noreferrer" title="Google 地图">谷</a></span>。</p>
+            </div>
+        </section>
+
+        <section id="shopping">
+            <h2>🛍️ 买什么更划算</h2>
+            
+            <div class="tip-box with-links">
+                <h4>💡 香港税制优势</h4>
+                <p>香港没有销售税/VAT，部分商品对外地游客更有价格优势。建议现场对比当日汇率与各地官网价；通用比价入口是 <span class="poi">Price.com.hk</span><span class="poi-links"><a class="poi-link price" href="https://price.com.hk/" target="_blank" rel="noopener noreferrer" title="Price 比价">价</a></span>。</p>
+            </div>
+
+            <div class="shopping-card">
+                <h4>🍎 苹果产品（iPhone / Mac / iPad / Apple Watch）</h4>
+                <p><strong>首选：</strong>苹果官方直营店（保真、售后流程清晰）<span class="poi-links"><a class="poi-link official" href="https://www.apple.com/hk/" target="_blank" rel="noopener noreferrer" title="苹果香港官网">官</a><a class="poi-link xhs" href="https://www.xiaohongshu.com/search_result?keyword=香港买苹果产品" target="_blank" rel="noopener noreferrer" title="小红书购买攻略">书</a></span></p>
+                <ul>
+                    <li><strong>尖沙咀门店：</strong><span class="poi">Apple Store（广东道100号）</span><span class="poi-links"><a class="poi-link amap" href="https://uri.amap.com/search?keyword=Apple+Store+尖沙咀广东道" target="_blank" rel="noopener noreferrer" title="高德地图">高</a><a class="poi-link google" href="https://www.google.com/maps/search/?api=1&amp;query=Apple%20Store%20%E5%B0%96%E6%B2%99%E5%92%80%E5%B9%BF%E4%B8%9C%E9%81%93100%E5%8F%B7" target="_blank" rel="noopener noreferrer" title="Google 地图">谷</a></span></li>
+                    <li><strong>中环门店：</strong><span class="poi">Apple IFC Mall</span><span class="poi-links"><a class="poi-link amap" href="https://uri.amap.com/search?keyword=Apple+Store+IFC+Mall+Hong+Kong" target="_blank" rel="noopener noreferrer" title="高德地图">高</a><a class="poi-link google" href="https://www.google.com/maps/search/?api=1&amp;query=Apple%20IFC%20Mall%20Hong%20Kong" target="_blank" rel="noopener noreferrer" title="Google 地图">谷</a></span></li>
+                    <li><strong>其他分店：</strong>铜锣湾希慎广场、九龙塘又一城、观塘apm、沙田新城市广场</li>
+                </ul>
+            </div>
+
+            <div class="shopping-card">
+                <h4>📷 相机/数码产品（机身、镜头、存储卡等）</h4>
+                <p><strong>推荐：</strong><span class="poi">丰泽电器连锁</span><span class="poi-links"><a class="poi-link amap" href="https://uri.amap.com/search?keyword=%E4%B8%B0%E6%B3%BD%E7%94%B5%E5%99%A8+%E9%A6%99%E6%B8%AF" target="_blank" rel="noopener noreferrer" title="高德地图">高</a><a class="poi-link google" href="https://www.google.com/maps/search/?api=1&amp;query=Fortress%20Store%20Hong%20Kong" target="_blank" rel="noopener noreferrer" title="Google 地图">谷</a></span>（品类全、少踩坑）</p>
+                <p>包含电脑、手机、相机、影音与家电，适合"一站式"购买</p>
+                <p><strong>建议：</strong>先在 <span class="poi">Price.com.hk</span><span class="poi-links"><a class="poi-link price" href="https://price.com.hk/" target="_blank" rel="noopener noreferrer" title="Price 比价">价</a></span> 对比同型号价格，再参考 <span class="poi">小红书相机攻略</span><span class="poi-links"><a class="poi-link xhs" href="https://www.xiaohongshu.com/search_result?keyword=香港买相机" target="_blank" rel="noopener noreferrer" title="小红书购买攻略">书</a></span>，最后去门店下单。</p>
+            </div>
+
+            <div class="shopping-card">
+                <h4>👜 奢侈品（包、表、珠宝、美妆）</h4>
+                <p><strong>香港核心点位：</strong></p>
+                <ul>
+                    <li><strong><span class="poi">尖沙咀海港城</span><span class="poi-links"><a class="poi-link amap" href="https://uri.amap.com/search?keyword=海港城 香港" target="_blank" rel="noopener noreferrer" title="高德地图">高</a><a class="poi-link google" href="https://www.google.com/maps/search/?api=1&amp;query=Harbour%20City%20Hong%20Kong" target="_blank" rel="noopener noreferrer" title="Google 地图">谷</a></span>：</strong>品牌密度高，集中好逛</li>
+                    <li><strong><span class="poi">中环 IFC / 置地广场</span><span class="poi-links"><a class="poi-link amap" href="https://uri.amap.com/search?keyword=中环IFC%20香港" target="_blank" rel="noopener noreferrer" title="高德地图">高</a><a class="poi-link google" href="https://www.google.com/maps/search/?api=1&amp;query=IFC%20Mall%20Hong%20Kong" target="_blank" rel="noopener noreferrer" title="Google 地图">谷</a></span>：</strong>更偏高端精品氛围</li>
+                    <li><strong><span class="poi">DFS 免税店（广东道）</span><span class="poi-links"><a class="poi-link amap" href="https://uri.amap.com/search?keyword=DFS%E5%85%8D%E7%A8%8E%E5%BA%97%20%E5%B0%96%E6%B2%99%E5%92%80%E5%B9%BF%E4%B8%9C%E9%81%93" target="_blank" rel="noopener noreferrer" title="高德地图">高</a><a class="poi-link google" href="https://www.google.com/maps/search/?api=1&amp;query=DFS%20T%20Galleria%20Hong%20Kong%20Canton%20Road" target="_blank" rel="noopener noreferrer" title="Google 地图">谷</a></span>：</strong>美妆香水配货集中</li>
+                </ul>
+                <p><strong>购物口碑参考：</strong><span class="poi">小红书香港奢侈品购物</span><span class="poi-links"><a class="poi-link xhs" href="https://www.xiaohongshu.com/search_result?keyword=香港奢侈品购物" target="_blank" rel="noopener noreferrer" title="小红书购物攻略">书</a></span></p>
+                <p><strong>品牌官网直达（先查款和公价）：</strong></p>
+                <div class="brand-links">
+                    <a href="https://www.louisvuitton.com/" target="_blank" rel="noopener noreferrer">LV 官网</a>
+                    <a href="https://www.hermes.com/" target="_blank" rel="noopener noreferrer">Hermes 官网</a>
+                    <a href="https://www.gucci.com/" target="_blank" rel="noopener noreferrer">Gucci 官网</a>
+                    <a href="https://www.chanel.com/" target="_blank" rel="noopener noreferrer">Chanel 官网</a>
+                    <a href="https://www.dior.com/" target="_blank" rel="noopener noreferrer">Dior 官网</a>
+                    <a href="https://www.prada.com/" target="_blank" rel="noopener noreferrer">Prada 官网</a>
+                    <a href="https://www.cartier.com/" target="_blank" rel="noopener noreferrer">Cartier 官网</a>
+                    <a href="https://www.rolex.com/" target="_blank" rel="noopener noreferrer">Rolex 官网</a>
+                </div>
+            </div>
+
+            <div class="shopping-card">
+                <h4>🇲🇴 澳门奢侈品购物</h4>
+                <ul>
+                    <li><strong><span class="poi">澳门壹号广场</span><span class="poi-links"><a class="poi-link amap" href="https://uri.amap.com/search?keyword=澳门壹号广场" target="_blank" rel="noopener noreferrer" title="高德地图">高</a><a class="poi-link google" href="https://www.google.com/maps/search/?api=1&amp;query=One%20Central%20Macau" target="_blank" rel="noopener noreferrer" title="Google 地图">谷</a></span>：</strong>集合大量国际一线奢侈品牌（LV、Hermes、Gucci、Cartier等）</li>
+                    <li><strong><span class="poi">路氹度假区</span><span class="poi-links"><a class="poi-link amap" href="https://uri.amap.com/search?keyword=澳门路氹城" target="_blank" rel="noopener noreferrer" title="高德地图">高</a><a class="poi-link google" href="https://www.google.com/maps/search/?api=1&amp;query=Cotai%20Strip%20Macau" target="_blank" rel="noopener noreferrer" title="Google 地图">谷</a></span>：</strong>大型购物中心密集，边玩边逛</li>
+                </ul>
+                <p><strong>购物口碑参考：</strong><span class="poi">小红书澳门奢侈品购物</span><span class="poi-links"><a class="poi-link xhs" href="https://www.xiaohongshu.com/search_result?keyword=澳门奢侈品购物" target="_blank" rel="noopener noreferrer" title="小红书购物攻略">书</a></span></p>
+            </div>
+        </section>
+
+        <section id="apps">
+            <h2>📱 港澳旅游必备APP指南</h2>
+            
+            <h3>💳 支付与乘车</h3>
+            
+            <div class="app-card">
+                <h4>支付宝 / 微信（内地版即可）</h4>
+                <p><strong>购物吃饭：</strong>香港和澳门90%以上商家支持，自动按优惠汇率折算</p>
+                <p><strong>乘公交地铁：</strong></p>
+                <ul>
+                    <li>香港：支付宝搜索"香港乘车码"或微信搜索"腾讯乘车码"</li>
+                    <li>澳门：支付宝"澳门乘车码"直接扫码上车</li>
+                </ul>
+            </div>
+
+            <div class="app-card">
+                <h4>八达通（推荐手机版，无需下载APP）</h4>
+                <p><strong>适用：</strong>iPhone或华为手机</p>
+                <p><strong>使用：</strong>在手机"钱包（Wallet）"里添加虚拟"香港八达通"</p>
+                <p><strong>优点：</strong>不需要解锁手机，不需要连网，手机碰闸机即可，对长辈更方便安全</p>
+            </div>
+
+            <div class="tip-box">
+                <h4>⚠️ 重要提示</h4>
+                <p><strong>如果吃当地小餐馆，要准备充足的现金</strong></p>
+            </div>
+
+            <h3>🚗 打车出行</h3>
+            <div class="app-card">
+                <h4>高德地图 / 滴滴打车 / 优步（Uber）</h4>
+                <p>三个APP都支持在港澳打车，建议都下载备用</p>
+            </div>
+
+            <h3>🗺️ 地图与导航</h3>
+            <div class="app-card">
+                <h4>高德地图 / Google 地图</h4>
+                <p>大陆环境下主用高德，Google 地图保留作补充查询。</p>
+            </div>
+
+            <h3>🍽️ 餐饮美食</h3>
+            <div class="app-card">
+                <h4>高德地图 / 大众点评</h4>
+                <p><strong>先看高德地图近期评分，再看大众点评菜品图</strong>，能明显减少踩坑。</p>
+            </div>
+
+            <h3>📖 景点攻略</h3>
+            <div class="app-card">
+                <h4>小红书</h4>
+                <p>临时某个景点不知道怎么买票，或者不知道怎么玩，就用小红书查</p>
+            </div>
+        </section>
+
+        <footer>
+            <p>🌸 祝您旅途愉快，享受退休生活的美好时光 🌸</p>
+            <p style="margin-top: 10px; font-size: 0.9rem;">本攻略包含高/谷/书小图标导航、Price 比价入口与酒店名称一键复制</p>
+        </footer>
+        <button class="top-btn" id="toTopBtn" aria-label="回到顶部">↑</button>
+    </div>
+    <script>
+        (function () {
+            function getHotelName(titleNode) {
+                if (!titleNode) return '';
+                var cloned = titleNode.cloneNode(true);
+                var badges = cloned.querySelectorAll('.location-tag, .copy-icon, .hotel-book, .poi-links');
+                badges.forEach(function (node) { node.remove(); });
+                return (cloned.textContent || '').replace(/\s+/g, ' ').trim();
+            }
+
+            var toastEl = null;
+            var toastTimer = null;
+            var hasShownCtripAlert = false;
+            function showToast(message) {
+                if (!message) return;
+                if (!toastEl) {
+                    toastEl = document.createElement('div');
+                    toastEl.className = 'copy-toast';
+                    toastEl.setAttribute('role', 'status');
+                    toastEl.setAttribute('aria-live', 'polite');
+                    document.body.appendChild(toastEl);
+                }
+                toastEl.textContent = message;
+                toastEl.classList.add('show');
+                if (toastTimer) clearTimeout(toastTimer);
+                toastTimer = setTimeout(function () {
+                    toastEl.classList.remove('show');
+                }, 1800);
+            }
+
+            function copyText(text) {
+                if (!text) return Promise.resolve(false);
+                if (navigator.clipboard && navigator.clipboard.writeText) {
+                    return navigator.clipboard.writeText(text).then(function () { return true; }).catch(function () { return false; });
+                }
+                return Promise.resolve(false);
+            }
+
+            var titleNodes = document.querySelectorAll('.hotel-card h4');
+            titleNodes.forEach(function (title) {
+                if (title.querySelector('.copy-icon')) return;
+
+                var btn = document.createElement('button');
+                btn.className = 'copy-icon';
+                btn.type = 'button';
+                btn.setAttribute('aria-label', '复制名称');
+                btn.textContent = '⎘';
+
+                btn.addEventListener('click', function () {
+                    var value = getHotelName(title);
+                    if (!value) return;
+                    copyText(value).then(function (ok) {
+                        showToast(ok ? '已复制酒店名' : '复制失败，请手动复制酒店名');
+                    });
+                    btn.textContent = '✓';
+                    btn.classList.add('copied');
+                    setTimeout(function () {
+                        btn.textContent = '⎘';
+                        btn.classList.remove('copied');
+                    }, 1200);
+                });
+
+                title.appendChild(btn);
+            });
+
+            var hotelBookLinks = document.querySelectorAll('.hotel-book');
+            hotelBookLinks.forEach(function (link) {
+                link.addEventListener('click', function () {
+                    var title = link.closest('h4');
+                    var value = getHotelName(title);
+                    if (!value) return;
+                    copyText(value).then(function (ok) {
+                        showToast(ok ? '酒店名已复制，打开携程后直接粘贴就行' : '打开携程后请手动复制酒店名再搜索');
+                    });
+                    if (!hasShownCtripAlert) {
+                        hasShownCtripAlert = true;
+                        alert('酒店名已复制，打开携程后直接粘贴就行。');
+                    }
+                });
+            });
+
+            var ctripLinks = document.querySelectorAll('.poi-link.ctrip');
+            ctripLinks.forEach(function (link) {
+                link.addEventListener('click', function () {
+                    showToast('已打开携程，可直接粘贴酒店名搜索');
+                    if (!hasShownCtripAlert) {
+                        hasShownCtripAlert = true;
+                        alert('已打开携程，可直接粘贴酒店名搜索。');
+                    }
+                });
+            });
+
+            var topBtn = document.getElementById('toTopBtn');
+            if (topBtn) {
+                window.addEventListener('scroll', function () {
+                    if (window.scrollY > 420) topBtn.classList.add('show');
+                    else topBtn.classList.remove('show');
+                });
+                topBtn.addEventListener('click', function () {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                });
+            }
+        })();
+    </script>
+</body>
+</html>
