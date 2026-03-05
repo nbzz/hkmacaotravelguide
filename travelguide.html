@@ -191,6 +191,7 @@
             font-size: 0.85rem;
             margin-right: 10px;
             font-weight: 600;
+            white-space: nowrap;
         }
 
         .day-tag {
@@ -521,6 +522,7 @@
             cursor: pointer;
             transition: all 0.2s ease;
             box-shadow: 0 1px 3px rgba(15, 23, 42, 0.08);
+            flex-shrink: 0;
         }
 
         .copy-icon:hover {
@@ -563,6 +565,36 @@
         .copy-toast.show {
             opacity: 1;
             transform: translateX(-50%) translateY(0);
+        }
+
+        @media (max-width: 768px) {
+            .hotel-card {
+                padding: 16px;
+            }
+
+            .hotel-card h4 {
+                flex-wrap: wrap;
+                align-items: center;
+                gap: 6px;
+                font-size: 1.05rem;
+                line-height: 1.34;
+            }
+
+            .hotel-card h4 .location-tag {
+                margin-right: 6px;
+                padding: 4px 10px;
+            }
+
+            .hotel-card h4 .copy-icon {
+                margin-left: 6px;
+                width: 26px;
+                height: 26px;
+                font-size: 14px;
+            }
+
+            .hotel-card h4 .poi-links {
+                margin-left: 2px;
+            }
         }
     </style>
 </head>
